@@ -1,0 +1,16 @@
+api_id,name,first_name,last_name,email,phone_number,created_at,approval_status,ticket_name,¿Cuál es tu nivel con IA?,¿Qué querés ver en el meetup?
+gst-a1b2c3,María Fernández,María,Fernández,maria.fernandez@example.com,+54 9 379 400-0001,2026-09-01T14:02:00Z,approved,General,Intermedio,Demo de Grok Bot
+gst-d4e5f6,Juan Pérez,Juan,Pérez,juan.perez@example.com,,2026-09-01T15:10:00Z,approved,General,Principiante,Workshop
+gst-g7h8i9,Lucía Gómez,Lucía,Gómez,lucia.gomez@example.com,+54 9 379 400-0003,2026-09-02T09:30:00Z,approved,Speaker,Avanzado,Q&A Cursor
+gst-j1k2l3,Tobías Ramírez,Tobías,Ramírez,tobias.ramirez@example.com,,2026-09-02T10:00:00Z,approved,Organizador,Avanzado,
+gst-m4n5o6,Sofía Núñez,Sofía,Núñez,sofia.nunez@example.com,,2026-09-03T18:45:00Z,approved,General,Intermedio,Networking
+gst-p7q8r9,Martín Alvarez,Martín,Alvarez,martin.alvarez@example.com,+54 9 379 400-0006,2026-09-03T19:00:00Z,approved,Estudiante UNNE,Principiante,Workshop
+gst-s1t2u3,Camila Ortiz,Camila,Ortiz,camila.ortiz@example.com,,2026-09-04T11:20:00Z,pending,General,Intermedio,Demo de Grok Bot
+gst-v4w5x6,Diego Benítez,Diego,Benítez,diego.benitez@example.com,,2026-09-04T12:00:00Z,approved,General,Principiante,Sorteos
+gst-y7z8a9,Valentina Ríos,Valentina,Ríos,valentina.rios@example.com,,2026-09-05T08:15:00Z,declined,General,,
+gst-b1c2d3,Nicolás Sosa,Nicolás,Sosa,nicolas.sosa@example.com,+54 9 379 400-0010,2026-09-05T16:40:00Z,approved,General,Avanzado,Tero y Dylo
+gst-e4f5g6,Agustina Acosta,Agustina,Acosta,agustina.acosta@example.com,,2026-09-06T13:05:00Z,approved,Estudiante UNNE,Principiante,Workshop
+gst-h7i8j9,Federico Ledesma,Federico,Ledesma,federico.ledesma@example.com,,2026-09-06T20:30:00Z,approved,General,Intermedio,Pizzas
+gst-k1l2m3,Florencia Romero,Florencia,Romero,florencia.romero@example.com,,2026-09-07T10:10:00Z,approved,General,Intermedio,Demo de Grok Bot
+gst-n4o5p6,Ezequiel Vera,Ezequiel,Vera,ezequiel.vera@example.com,,2026-09-07T22:00:00Z,approved,General,Principiante,Q&A Cursor
+gst-q7r8s9,Josefina Duarte,Josefina,Duarte,josefina.duarte@example.com,,2026-09-08T09:00:00Z,approved,Speaker,Avanzado,
