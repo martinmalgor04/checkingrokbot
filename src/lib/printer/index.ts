@@ -56,7 +56,7 @@ export class CupsEscPosPrinter implements PrinterDriver {
       const { stdout } = await execFileAsync("lpstat", ["-p"], { timeout: 5000 });
       return stdout
         .split("\n")
-        .map((l) => l.match(/^printer\s+(\S+)\s+(.*)$/))
+        .map((l) => l.match(/^(?:printer|la impresora)\s+(\S+)\s+(.*)$/i))
         .filter((m): m is RegExpMatchArray => !!m)
         .map((m) => ({ id: m[1], name: m[1], status: m[2] }));
     } catch {
@@ -78,14 +78,33 @@ export class CupsEscPosPrinter implements PrinterDriver {
     const tmp = path.join(os.tmpdir(), `ticket-${Date.now()}.bin`);
     fs.writeFileSync(tmp, bytes);
     try {
-      await execFileAsync("lp", ["-d", this.deviceId, "-o", "raw", "-s", tmp], { timeout: 10000 });
+      const uri = await resolveCupsDeviceUri(this.deviceId);
+      if (uri.startsWith("usb://") && fs.existsSync("/usr/libexec/cups/backend/usb")) {
+        // macOS maps these 58 mm printers to a PostScript PPD; `lp -o raw` then
+        // "completes" without sending ESC/POS. The CUPS USB backend writes bytes as-is.
+        await execFileAsync(
+          "/usr/libexec/cups/backend/usb",
+          ["1", os.userInfo().username, "ticket", "1", "", tmp],
+          { timeout: 30000, env: { ...process.env, DEVICE_URI: uri } },
+        );
+        return;
+      }
+      await execFileAsync("lp", ["-d", this.deviceId, "-o", "raw", "-s", tmp], { timeout: 15000 });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
-      throw new Error(`lp falló: ${msg.split("\n")[0]}`);
+      throw new Error(`Impresión falló: ${msg.split("\n")[0]}`);
     } finally {
       fs.rmSync(tmp, { force: true });
     }
   }
+}
+
+async function resolveCupsDeviceUri(queueOrUri: string): Promise<string> {
+  if (queueOrUri.includes("://")) return queueOrUri;
+  const { stdout } = await execFileAsync("lpstat", ["-v", queueOrUri], { timeout: 5000 });
+  const match = stdout.match(/:\s*(\S+)/);
+  if (!match) throw new Error(`No se encontró el dispositivo de ${queueOrUri}`);
+  return match[1];
 }
 
 export function getPrinter(config: EventConfig): PrinterDriver {

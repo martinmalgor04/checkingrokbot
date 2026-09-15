@@ -3,18 +3,18 @@ import type { ColumnMapping, EventConfig } from "./types";
 
 export const DEFAULT_CONFIG: EventConfig = {
   id: "grok-bot-meetup-ctes-2026",
-  name: "GROK BOT MEETUP",
+  name: "Grok Bot Meetup",
   date: "2026-09-16",
-  venue: "Parque Tec UNNE",
-  ticketHeader: "Corrientes\n16 Sep 2026 · Parque Tec UNNE",
-  ticketFooter: "SpaceX AI · xAI / Grok\nQue disfrutes el meetup",
+  venue: "Resistencia",
+  ticketHeader: "Resistencia",
+  ticketFooter: "Gracias por venir!",
   welcomeText: "Bienvenido/a",
   autoPrint: true,
   printerDriver: "mock",
   printerDeviceId: undefined,
   feedBefore: 0,
   feedAfter: 3,
-  cutPaper: true,
+  cutPaper: false,
   soundOnCheckIn: true,
   timeZone: "America/Argentina/Buenos_Aires",
 };

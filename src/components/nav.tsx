@@ -16,11 +16,10 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-4 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="inline-flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-bold">
-            GB
-          </span>
-          <span className="hidden sm:inline">Grok Bot Meetup · Recepción</span>
+        <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/grokbot-logo.png" alt="Grok Bot" className="h-7 w-auto dark:invert" />
+          <span className="hidden sm:inline text-sm font-medium text-muted-foreground">Meetup · Recepción</span>
         </Link>
         <nav className="ml-auto flex items-center gap-1 text-sm">
           {LINKS.map((l) => {

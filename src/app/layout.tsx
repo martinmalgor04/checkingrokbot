@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 export const metadata: Metadata = {
   title: "Check-in · Grok Bot Meetup",
   description: "Recepción y tickets 58mm para el Grok Bot Meetup",
+  icons: { icon: "/grokbot-logo.png", apple: "/grokbot-logo.png" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
